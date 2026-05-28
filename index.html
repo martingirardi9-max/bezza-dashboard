@@ -2,7 +2,7 @@
 (function(){
   try {
     const _exportedData = {"MESES17":["Ene-25","Feb-25","Mar-25","Abr-25","May-25","Jun-25","Jul-25","Ago-25","Sep-25","Oct-25","Nov-25","Dic-25","Ene-26","Feb-26","Mar-26","Abr-26","May-26","Jun-26","Jul-26","Ago-26","Sep-26","Oct-26","Nov-26","Dic-26"],"MESES_BEZZA":["May-26","Jun-26","Jul-26","Ago-26","Sep-26","Oct-26","Nov-26","Dic-26"],"MESES_JUN_DIC":["Jun-26","Jul-26","Ago-26","Sep-26","Oct-26","Nov-26","Dic-26"],"CHURN_MESES":["Ene-25","Feb-25","Mar-25","Abr-25","May-25","Jun-25","Jul-25","Ago-25","Sep-25","Oct-25","Nov-25","Dic-25","Ene-26","Feb-26","Mar-26","Abr-26"],"CHURN_REAL":[25,22,22,18,18,16,15,15,14,14,13,12,19,17,16,13],"D":{"com":{"activos":[5015,4981,5017,5116,5160,5200,5285,5502,5696,5857,5820,6014,5662,5618,5703,5740,5450,null,null,null,null,null,null,null],"targets":[6615,6349,6253,6200,6200,6400,6200,6200,6200,6500,6200,6600,6500,6200,6300,6500,6900,7400,7850,8400,10754,10972,11196,11426],"tx":[189403,185928,181869,184442,191507,196516,220669,233203,258269,287195,269647,336282,304010,265019,284814,296532,290543,null,null,null,null,null,null,null],"tpv":[6356,6199,6404,7212,7851,8246,9225,9158,10053,10719,10091,13728,11014,10383,10784,10021,10276,null,null,null,null,null,null,null],"tpvTarget":[6305,6850,7500,8300,8527,9428,10562,11862,14081,15500,15000,15500,11896,10382,13874,14356,13746,null,null,null,null,null,null,null],"tpvAnio":53910,"tpvAnioTarget":64410,"tpvMes":10276,"tpvMesTarget":13746,"activosMes":5450,"activosMesTarget":6900,"altasMes":328,"altasMesTarget":398,"margenNetoMes":245,"margenNetoMesTarget":null,"mesMostrar":"Mayo"},"inst":{"activos":[2,3,4,6,5,11,17,25,36,55,84,103,125,130,128,142,142,145,null,null,null,null,null,null],"tpv":[9547,36635,9566,5757,9516,8123,8764,8142,7299,8681,9059,11241,37110,63694,41767,33386,45487,null,null,null,null,null,null,null],"tpvTarget":[2000,35000,38000,13000,10000,9000,13192,8500,18600,21540,23814,10000,44437,68681,33403,25900,26236,25226,31825,32889,33816,34806,35212,null],"tpvAnio":222546,"tpvAnioTarget":172421,"tpvMes":46582,"tpvMesTarget":32025,"activasMes":145,"activasMesTarget":null,"margenNetoMes":227,"margenNetoMesTarget":null,"mesMostrar":"Mayo"},"margen":{"comercios":[168,164,170,191,208,219,244,243,266,284,267,394,312,276,296,288,285,null,null,null,null,null,null,null],"instituciones":[57,220,57,35,57,49,53,49,44,52,54,67,228,395,194,142,237,null,null,null,null,null,null,null],"segmento":"ambos","mesMostrar":"Mayo 2026"},"bezza":{"mau":[6000,16541,28572,39427,64044,76656,85900,94000],"mauReal":[6189,null,null,null,null,null,null,null],"mauVista":"proyeccion","activados":[6189,14094,18648,22284,40388,38229,39907,42459],"altasBrutas":[0,25626,32907,38204,67314,61989,63014,65322],"totalAltasAnio":354376,"totalAltasTarget":354376,"totalActivadosAcum":216009,"totalActivadosTarget":216009,"mauMes":6189,"mauMesTarget":7000,"mapMes":null,"altasMes":7664,"altasMesTarget":6000,"mauDic26":94000,"mesMostrar":"Mayo 2026","activacionMeses":["Ene-26","Feb-26","Mar-26","Abr-26","May-26"],"activacionPct":[68,65,53,46,47]},"longtail":{"mesMostrar":"May-26","pctMedianos":11,"pctPequenos":89},"top5inst":{"mesMostrar":"May-26","nombres":["Rentas","EPEC","Muni CBA","Siglo XXI","Muni VCP"],"pcts":[75.3,14.1,3.5,0.7,0.4],"otrosPct":6}},"savedAt":"2026-05-28T18:06:30.776Z"};
-    localStorage.setItem('bezza_dashboard_v11_acordeon_tortas', JSON.stringify(_exportedData));
+    localStorage.setItem('bezza_dashboard_v12_alert_editable', JSON.stringify(_exportedData));
   } catch(e){}
 })();
 </script>
@@ -296,7 +296,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:1
       </div>
       <button class="edit-fab" onclick="openModal('comercios')">✏️ Actualizar</button>
     </div>
-    <div class="alert-parcial">⚠️ Datos de Mayo 2026 parciales — mes en curso.</div>
+    <div class="alert-parcial" id="alert-com-hub"></div>
     <div class="summary-bar" id="sum-com"></div>
     <div class="section-label" style="margin-top:.25rem">Explorar indicadores</div>
     <div class="area-grid">
@@ -555,7 +555,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:1
       </div>
       <button class="edit-fab" onclick="openModal('instituciones')">✏️ Actualizar</button>
     </div>
-    <div class="alert-parcial">⚠️ Datos de Mayo 2026 parciales — mes en curso.</div>
+    <div class="alert-parcial" id="alert-inst-hub"></div>
     <div class="summary-bar" id="sum-inst"></div>
     <div class="filter-bar" id="fb-inst" style="margin-top:.5rem">
       <span class="filter-bar-label">Filtrar período</span>
@@ -865,7 +865,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:1
 // ══════════════════════════════════════════════════════════════
 // DATA — valores por defecto (base)
 // ══════════════════════════════════════════════════════════════
-const STORAGE_KEY = 'bezza_dashboard_v11_acordeon_tortas';
+const STORAGE_KEY = 'bezza_dashboard_v12_alert_editable';
 
 const DATA_DEFAULT = {
   MESES17:      ['Ene-25','Feb-25','Mar-25','Abr-25','May-25','Jun-25','Jul-25','Ago-25','Sep-25','Oct-25','Nov-25','Dic-25','Ene-26','Feb-26','Mar-26','Abr-26','May-26','Jun-26','Jul-26','Ago-26','Sep-26','Oct-26','Nov-26','Dic-26'],
@@ -886,6 +886,7 @@ const DATA_DEFAULT = {
       altasMes:     null,   altasMesTarget:   null,
       margenNetoMes: null,  margenNetoMesTarget: null,
       mesMostrar:   'Mayo',
+      alertTexto: '⚠️ Datos de Mayo 2026 parciales — mes en curso.',
     },
     inst: {
       activos:      [2,3,4,6,5,11,17,25,36,55,84,103,125,130,128,142,142,null,null,null,null,null,null,null],
@@ -896,6 +897,7 @@ const DATA_DEFAULT = {
       activasMes:   142,    activasMesTarget: 142,
       margenNetoMes: null,  margenNetoMesTarget: null,
       mesMostrar:   'Mayo',
+      alertTexto: '⚠️ Datos de Mayo 2026 parciales — mes en curso.',
     },
     margen: {
       comercios:     [168,164,170,191,208,219,244,243,266,284,267,394,312,276,296,288,285,null,null,null,null,null,null,null],
@@ -1053,6 +1055,8 @@ if(D.top5inst && D.top5inst.tpv && !D.top5inst.pcts){
 if(!D.bezza.mapMes && D.bezza.mapMes === undefined) D.bezza.mapMes = null;
 if(!D.bezza.activacionMeses) D.bezza.activacionMeses = [...DATA_DEFAULT.D.bezza.activacionMeses];
 if(!D.bezza.activacionPct) D.bezza.activacionPct = [...DATA_DEFAULT.D.bezza.activacionPct];
+if(!D.com.alertTexto) D.com.alertTexto = '⚠️ Datos de Mayo 2026 parciales — mes en curso.';
+if(!D.inst.alertTexto) D.inst.alertTexto = '⚠️ Datos de Mayo 2026 parciales — mes en curso.';
 
 // Migración defensiva: si el navegador tenía datos guardados de una versión anterior,
 // completamos las nuevas estructuras sin perder la información editable existente.
@@ -1584,6 +1588,8 @@ function renderActivacion(){
 function renderComHub(){
   const d=D.com;
   const mes = d.mesMostrar || 'Mayo';
+  const alertEl = document.getElementById('alert-com-hub');
+  if(alertEl) alertEl.textContent = d.alertTexto || '⚠️ Datos de Mayo 2026 parciales — mes en curso.';
   document.getElementById('sum-com').innerHTML=
     sumCard('TPV vendido 2026 acumulado', d.tpvAnio, d.tpvAnioTarget, ' MM$', false, false)+
     sumCard('TPV del mes — '+mes, d.tpvMes, d.tpvMesTarget, ' MM$', true, false)+
@@ -1633,6 +1639,8 @@ function renderComChurn(){
 
 function renderInstHub(){
   const d=D.inst;
+  const alertEl = document.getElementById('alert-inst-hub');
+  if(alertEl) alertEl.textContent = d.alertTexto || '⚠️ Datos de Mayo 2026 parciales — mes en curso.';
   document.getElementById('sum-inst').innerHTML=
     sumCard('TPV acumulado 2026', d.tpvAnio, d.tpvAnioTarget, ' MM$', false, false)+
     sumCard('TPV del mes — '+(d.mesMostrar||'Mayo'), d.tpvMes, d.tpvMesTarget, ' MM$', true, false)+
@@ -1843,7 +1851,8 @@ const MODAL_CFG = {
         label:'Mes en curso',
         note:'Actualizá este campo al cambiar de mes. Se usa como etiqueta en todas las tarjetas de resumen.',
         fields:[
-          {k:'mesMostrar', l:'Etiqueta del mes en curso (ej: Junio)', str:true},
+          {k:'mesMostrar',  l:'Etiqueta del mes en curso (ej: Junio)', str:true},
+          {k:'alertTexto',  l:'Texto del aviso superior (ej: ⚠️ May-26 cerrado  |  ⚠️ Datos de Junio parciales — mes en curso.)', str:true},
         ]
       },
       {
@@ -1889,7 +1898,8 @@ const MODAL_CFG = {
         label:'Mes en curso',
         note:'Actualizá este campo al cambiar de mes. Se usa como etiqueta en todas las tarjetas de resumen.',
         fields:[
-          {k:'mesMostrar', l:'Etiqueta del mes en curso (ej: Junio)', str:true},
+          {k:'mesMostrar',  l:'Etiqueta del mes en curso (ej: Junio)', str:true},
+          {k:'alertTexto',  l:'Texto del aviso superior (ej: ⚠️ May-26 cerrado  |  ⚠️ Datos de Junio parciales — mes en curso.)', str:true},
         ]
       },
       {
