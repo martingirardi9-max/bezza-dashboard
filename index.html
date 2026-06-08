@@ -307,7 +307,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:1
       <button class="back-btn" onclick="goTo('screen-bezzapay')">← Bezza Pay</button>
       <div style="flex:1">
         <div class="sect-title">Comercios</div>
-        <div class="sect-sub">Bezza Pay · Resumen Mayo 2026</div>
+        <div class="sect-sub" id="com-hub-sub">Bezza Pay · Resumen</div>
       </div>
       <button class="edit-fab" onclick="openModal('comercios')">✏️ Actualizar</button>
     </div>
@@ -624,7 +624,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:1
       <button class="back-btn" onclick="goTo('screen-bezzapay')">← Bezza Pay</button>
       <div style="flex:1">
         <div class="sect-title">Instituciones</div>
-        <div class="sect-sub">Bezza Pay · Resumen Mayo 2026</div>
+        <div class="sect-sub" id="inst-hub-sub">Bezza Pay · Resumen</div>
       </div>
       <button class="edit-fab" onclick="openModal('instituciones')">✏️ Actualizar</button>
     </div>
@@ -1821,6 +1821,8 @@ function renderComHub(){
   const mes = d.mesMostrar || 'Mayo';
   const alertEl = document.getElementById('alert-com-hub');
   if(alertEl) alertEl.textContent = d.alertTexto || '⚠️ Datos de Mayo 2026 parciales — mes en curso.';
+  const comSubEl = document.getElementById('com-hub-sub');
+  if(comSubEl) comSubEl.textContent = 'Bezza Pay · Resumen ' + mes + ' 2026';
   document.getElementById('sum-com').innerHTML=
     sumCard('TPV vendido 2026 acumulado', d.tpvAnio, d.tpvAnioTarget, ' MM$', false, false)+
     sumCard('TPV del mes — '+mes, d.tpvMes, d.tpvMesTarget, ' MM$', true, false)+
@@ -1872,6 +1874,8 @@ function renderInstHub(){
   const d=D.inst;
   const alertEl = document.getElementById('alert-inst-hub');
   if(alertEl) alertEl.textContent = d.alertTexto || '⚠️ Datos de Mayo 2026 parciales — mes en curso.';
+  const instSubEl = document.getElementById('inst-hub-sub');
+  if(instSubEl) instSubEl.textContent = 'Bezza Pay · Resumen ' + (d.mesMostrar||'Mayo') + ' 2026';
   document.getElementById('sum-inst').innerHTML=
     sumCard('TPV acumulado 2026', d.tpvAnio, d.tpvAnioTarget, ' MM$', false, false)+
     sumCard('TPV del mes — '+(d.mesMostrar||'Mayo'), d.tpvMes, d.tpvMesTarget, ' MM$', true, false)+
