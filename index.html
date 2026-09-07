@@ -208,7 +208,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:1
 
 <div class="topbar">
   <div class="hub-logo">Hub Bezza</div>
-  <div class="breadcrumb" id="breadcrumb"><span class="crumb current" onclick="void 0">Bezza</span></div>
+  <div class="breadcrumb" id="breadcrumb"></div>
   <div style="margin-left:auto;display:flex;align-items:center;gap:8px;flex-shrink:0">
     <span id="save-indicator" style="font-size: 11px; color: var(--muted); display: none;">⬇ Exportado</span>
     <button onclick="exportDashboard()" style="font-size: 11px; font-family: var(--font); background: rgb(160, 212, 74); color: rgb(11, 14, 20); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 6px; font-weight: 700; padding: 5px 12px; cursor: pointer; transition: 0.15s;" onmouseover="this.style.background='#a0d44a'" onmouseout="this.style.background='var(--green)'">⬇ Exportar</button>
@@ -217,7 +217,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:1
 </div>
 
 <!-- ════════════════════════ HOME ════════════════════════ -->
-<div id="screen-home" class="screen">
+<div id="screen-home" class="screen active">
   <div class="wrap">
     <div class="home-header">
       <h1>Panel Ejecutivo 2026</h1>
@@ -915,7 +915,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:1
 </div>
 
 <!-- ════════════════════════ BEZZA ════════════════════════ -->
-<div id="screen-bezza" class="screen active">
+<div id="screen-bezza" class="screen">
   <div class="wrap">
     <div class="sect-row">
       <button class="back-btn" onclick="goTo('screen-home')">← Inicio</button>
